@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="weather.js"></script>
+    <script defer src="tipCalculater.js"></script>
+</head>
+
+<body>
+    <button id="weather">weather</button>
+    <button id="tipBtn">tipCalculater</button>
+    <h1 id="headweather"></h1>
+    <h1 id="headTip"></h1>
+    <script>
+        let weatherBtn = document.getElementById("weather");
+        let tipButton = document.getElementById("tipBtn");
+        weatherBtn.addEventListener("click", () => {
+            weatherApp();
+        })
+        tipButton.addEventListener("click", () => {
+            document.getElementById("headTip").textContent = calculateFoodTotal(1200, 10);
+        })
+
+        function weatherApp() {
+            let weather = prompt("how's the weather?");
+            if (weather == "rain") {
+                document.getElementById("headweather").textContent = "grab your Umbrella!";
+            } else {
+                document.getElementById("headweather").textContent = "wear your sunglasses!";
+            }
+
+        }
+
+        function calculateFoodTotal(food, tip) {
+            tipPercentage = tip / 100
+            tipAmount = food * tipPercentage
+            total = food + tipAmount
+            return total
+        }
+     
+    </script>
+
+</body>
+
+</html>
